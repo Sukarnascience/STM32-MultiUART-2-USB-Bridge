@@ -381,7 +381,7 @@ drain_uart:
     {
         uint8_t buf[CDC_DATA_MPS];
         for (uint8_t p = 0; p < 3U; p++) {
-            if (!g_dtr[p]) continue;
+
             uint8_t ep = DATA_EP[p];
             if (g_tx_busy[ep]) continue;
             uint32_t n = ring_pop_bulk(&uart_ch[p].rx, buf, CDC_DATA_MPS);
